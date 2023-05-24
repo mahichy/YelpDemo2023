@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <%= link_to "YelpDemo", root_path, class: "navbar-brand"%>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -12,6 +12,13 @@
         <li class="nav-item">
           <a class="nav-link" href="#">Link</a>
         </li>
+      </ul>
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <% if (!user_signed_in?) %>
+          <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
+          <%= link_to "Sign In", new_user_session_path, class: "nav-link"%>
+
+        <% else %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -20,17 +27,17 @@
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
+            <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item"%></li>
+            <li><%= button_to("Sign Out", destroy_user_session_path,  class:"sign-out dropdown-item nav-item", form: { data: { turbo_confirm: "Are you sure?" } },  method: :delete ) %></li>
+
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
+
+        <% end %>
+       
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+  
     </div>
   </div>
 </nav>
