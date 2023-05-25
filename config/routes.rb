@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :restaurants
   devise_for :users
   get 'page/home'
   get 'page/about'
