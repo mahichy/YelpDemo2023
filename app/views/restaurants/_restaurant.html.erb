@@ -1,4 +1,10 @@
 <div id="<%= dom_id restaurant %>">
+  
+   <% if @restaurant.image_url %>
+    <%= image_tag @restaurant.image_url %>
+ <% end %>
+  
+  
   <p>
     <strong>Name:</strong>
     <%= restaurant.name %>
@@ -18,5 +24,7 @@
     <strong>Website:</strong>
     <%= restaurant.website %>
   </p>
+
+ 
 
 </div>

@@ -22,6 +22,7 @@ gem "jbuilder"
 gem "bootstrap"
 gem "sassc-rails"
 gem 'devise'
+gem 'carrierwave'
 
 gem "tzinfo-data", platforms: %i[ mingw mswin x64_mingw jruby ]
 
