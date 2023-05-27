@@ -1,15 +1,7 @@
 class ReviewsController < ApplicationController
-  before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :set_review, only: %i[ edit update destroy ]
   before_action :authenticate_user!
 
-  # GET /reviews or /reviews.json
-  def index
-    @reviews = Review.all
-  end
-
-  # GET /reviews/1 or /reviews/1.json
-  def show
-  end
 
   # GET /reviews/new
   def new
@@ -27,7 +19,7 @@ class ReviewsController < ApplicationController
 
     respond_to do |format|
       if @review.save
-        format.html { redirect_to review_url(@review), notice: "Review was successfully created." }
+        format.html { redirect_to root_path, notice: "Review was successfully created." }
         format.json { render :show, status: :created, location: @review }
       else
         format.html { render :new, status: :unprocessable_entity }
