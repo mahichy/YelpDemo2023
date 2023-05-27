@@ -3,9 +3,9 @@
 <%= render @restaurant %>
 
 <div>
-  <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"%>
+  
+
+
   <%= link_to "Edit ", edit_restaurant_path(@restaurant), class: "btn btn-link" %> |
   <%= link_to "Back", restaurants_path, class: "btn btn-link" %>
-
-  <%= button_to "Destroy", @restaurant, method: :delete , class: "btn btn-link" %>
 </div>

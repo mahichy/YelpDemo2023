@@ -1,30 +1,57 @@
-<div id="<%= dom_id restaurant %>">
-  
-   <% if @restaurant.image_url %>
-    <%= image_tag @restaurant.image_url %>
- <% end %>
-  
-  
-  <p>
-    <strong>Name:</strong>
-    <%= restaurant.name %>
-  </p>
+<div class="row">
+  <div class="col-md-3">
+    <div id="<%= dom_id restaurant %>">
+      
+      <% if @restaurant.image_url %>
+        <%= image_tag @restaurant.image_url %>
+      <% end %>
+      
+      
+      <h2>
+        <%= restaurant.name.upcase %>
+      </h2>
 
-  <p>
-    <strong>Address:</strong>
-    <%= restaurant.address %>
-  </p>
+      <p>
+        <strong>Address:</strong>
+        <%= restaurant.address %>
+      </p>
 
-  <p>
-    <strong>Phone:</strong>
-    <%= restaurant.phone %>
-  </p>
+      <p>
+        <strong>Phone:</strong>
+        <%= restaurant.phone %>
+      </p>
 
-  <p>
-    <strong>Website:</strong>
-    <%= restaurant.website %>
-  </p>
+      <p>
+        <strong>Website:</strong>
+        <%= link_to restaurant.website, restaurant.website %>
+      </p>
 
- 
+       <%= link_to "Write a Review", new_restaurant_review_path(@restaurant), class: "btn btn-primary"%>
+
+    </div>
+  </div>
+
+
+  <div class="col-md-9">
+  <% if @reviews.blank? %>
+    <h2>No reviews yet. Be the first to write one!</h2>
+  <% else %>
+    <% @reviews.each do |review|%>
+      <p><%= review.rating%></p>
+      <p><%= review.comment.capitalize%></p>
+    <% end %>
+  <% end %>
+  </div>
 
 </div>
+
+
+
+
+
+
+
+
+
+
+
