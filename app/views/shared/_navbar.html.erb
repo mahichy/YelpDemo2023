@@ -16,20 +16,24 @@
       </ul>
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <% if (!user_signed_in?) %>
+        <li class="nav-item">
           <%= link_to "Sign Up", new_user_registration_path, class: "nav-link"%>
+        </li>
+        <li class="nav-item">
           <%= link_to "Sign In", new_user_session_path, class: "nav-link"%>
+        </li>
 
         <% else %>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
+            <%= current_user.email%>
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <li><a class="dropdown-item" href="#">Action</a></li>
             <li><a class="dropdown-item" href="#">Another action</a></li>
             <li><hr class="dropdown-divider"></li>
-            <li><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item"%></li>
-            <li><%= button_to("Sign Out", destroy_user_session_path,  class:"sign-out dropdown-item nav-item", form: { data: { turbo_confirm: "Are you sure?" } },  method: :delete ) %></li>
+            <li class="nav-item"><%= link_to "Edit Profile", edit_user_registration_path, class: "dropdown-item"%></li>
+            <li class="nav-item"><%= button_to("Sign Out", destroy_user_session_path,  class:"sign-out dropdown-item nav-item", form: { data: { turbo_confirm: "Are you sure?" } },  method: :delete ) %></li>
 
             <li><a class="dropdown-item" href="#">Something else here</a></li>
           </ul>
