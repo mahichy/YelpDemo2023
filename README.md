@@ -21,4 +21,5 @@ Things you may want to cover:
 
 * Deployment instructions
 
+        <td><%= link_to 'Show', restaurant, class: "btn btn-link"%></td>
 * ...
